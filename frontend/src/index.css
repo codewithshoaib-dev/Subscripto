@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  /* Base */
+  --background: 245 247 255;
+  --foreground: 15 23 42;
+
+  /* Surfaces */
+  --card: 255 255 255;
+  --muted: 248 250 252;
+
+  /* Borders */
+  --border: 226 232 240;
+
+  /* Brand */
+  --primary: 99 102 241;
+  --primary-hover: 79 70 229;
+
+  /* Accents (used for gradients/glow) */
+  --accent-purple: 168 85 247;
+  --accent-blue: 59 130 246;
+
+  /* Text */
+  --muted-foreground: 100 116 139;
+}
+
+@theme inline {
+  --color-background: rgb(var(--background));
+  --color-foreground: rgb(var(--foreground));
+  --color-card: rgb(var(--card));
+  --color-border: rgb(var(--border));
+  --color-muted: rgb(var(--muted));
+  --color-muted-foreground: rgb(var(--muted-foreground));
+
+  --color-primary: rgb(var(--primary));
+  --color-primary-hover: rgb(var(--primary-hover));
+
+  --color-accent-purple: rgb(var(--accent-purple));
+  --color-accent-blue: rgb(var(--accent-blue));
+}
+
+@layer components {
+  .card {
+    @apply bg-card border border-border rounded-2xl shadow-sm;
+  }
+
+  .card-elevated {
+    @apply bg-card border border-border rounded-2xl shadow-lg;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground;
+    @apply placeholder-neutral-400;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .input:focus {
+    border-color: rgb(var(--primary));
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+    outline: none;
+  }
+
+  .btn-primary {
+    @apply w-full py-3 rounded-xl font-medium text-white;
+    background: linear-gradient(
+      135deg,
+      rgb(var(--primary)),
+      rgb(var(--accent-purple))
+    );
+    box-shadow: 0 10px 20px rgba(99,102,241,0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(99,102,241,0.35);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .link {
+    @apply text-sm font-medium;
+    color: rgb(var(--primary));
+  }
+
+  .link:hover {
+    text-decoration: underline;
+  }
+}
