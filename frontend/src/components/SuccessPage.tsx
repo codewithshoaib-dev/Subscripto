@@ -13,7 +13,7 @@ export function SuccessPage() {
 
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-6">
+    <div className="min-h-[90vh] flex items-center justify-center bg-background p-6">
       <div className="w-full max-w-md bg-card rounded-2xl shadow-lg p-8 text-center">
         <div className="mx-auto inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-50 text-green-600 mb-6">
           <CheckIcon />

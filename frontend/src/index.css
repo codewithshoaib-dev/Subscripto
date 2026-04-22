@@ -16,12 +16,14 @@
   --primary: 99 102 241;
   --primary-hover: 79 70 229;
 
-  /* Accents (used for gradients/glow) */
+  /* Accents  */
   --accent-purple: 168 85 247;
   --accent-blue: 59 130 246;
 
   /* Text */
   --muted-foreground: 100 116 139;
+
+   --size-step: 1.75rem; /* ~w-7 */
 }
 
 @theme inline {
@@ -88,4 +90,31 @@
   .link:hover {
     text-decoration: underline;
   }
+
+  /* Steps */
+
+  .step-active {
+  @apply flex items-center justify-center
+         rounded-full font-medium
+         bg-primary text-white;
+  width: var(--size-step);
+  height: var(--size-step);
+  font-size: var(--text-sm);
+}
+
+.step-inactive {
+  @apply flex items-center justify-center
+         rounded-full border border-border;
+  width: var(--size-step);
+  height: var(--size-step);
+  font-size: var(--text-sm);
+}
+
+.step-label {
+  @apply mt-1 text-xs sm:text-sm font-medium text-center;
+}
+
+.step-connector {
+  @apply flex-1 h-px bg-border mx-2;
+}
 }

@@ -64,29 +64,30 @@ export default function PlanSelector({ onSubscribe }: PlanSelectorProps) {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
-      {/* Stepper (Simplified for brevity) */}
-      <div className="w-full px-6 py-5 border-b border-border flex items-center justify-center">
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2 opacity-50">
-            <div className="w-7 h-7 rounded-full border border-border flex items-center justify-center text-sm">
-              1
-            </div>
-            <span className="text-sm">Account</span>
+    <div className="min-h-[90vh] bg-background text-foreground flex flex-col py-6">
+      {/* Stepper  */}
+      <div className="w-full px-4 py-4 border-b border-border flex justify-center">
+        <div className="flex items-center justify-between w-full max-w-md">
+          {/* Step 1 */}
+          <div className="flex flex-col items-center flex-1">
+            <div className="step-active">1</div>
+            <span className="step-label">Account</span>
           </div>
-          <div className="w-10 h-0.5 bg-border" />
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center text-sm font-medium">
-              2
-            </div>
-            <span className="text-sm font-medium">Plan</span>
+
+          <div className="step-connector" />
+
+          {/* Step 2 */}
+          <div className="flex flex-col items-center flex-1 opacity-50">
+            <div className="step-inactive">2</div>
+            <span className="step-label">Plan</span>
           </div>
-          <div className="w-10 h-0.5 bg-border" />
-          <div className="flex items-center gap-2 opacity-50">
-            <div className="w-7 h-7 rounded-full border border-border flex items-center justify-center text-sm">
-              3
-            </div>
-            <span className="text-sm">Checkout</span>
+
+          <div className="step-connector" />
+
+          {/* Step 3 */}
+          <div className="flex flex-col items-center flex-1 opacity-50">
+            <div className="step-inactive">3</div>
+            <span className="step-label">Checkout</span>
           </div>
         </div>
       </div>
@@ -206,7 +207,9 @@ export default function PlanSelector({ onSubscribe }: PlanSelectorProps) {
 
                     <button
                       onClick={() => onSubscribe(plan.id, plan.cycle)}
-                      className={"w-full py-3 px-4 rounded-xl text-sm font-semibold transition-colors bg-primary text-primary-foreground hover:bg-primary/90"}
+                      className={
+                        "w-full py-3 px-4 rounded-xl text-sm font-semibold transition-colors bg-primary text-primary-foreground hover:bg-primary/90"
+                      }
                     >
                       Get Started
                     </button>
