@@ -3,7 +3,7 @@ import { useAuth } from "@/stores/useAuth";
 
 const baseURL =
      import.meta.env.MODE === "production"
-    ? "https://api.gosaasbuild.com/"
+    ? "https://api.shoaibcodes.com/"
     : "http://localhost:8000/";
 
 const apiClient = axios.create({
